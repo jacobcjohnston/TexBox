@@ -1,0 +1,42 @@
+.App {
+  text-align: center;
+}
+
+.App-logo {
+  height: 40vmin;
+  pointer-events: none;
+}
+
+.App-header {
+  background-color: #282c34;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  font-size: calc(5px + 1vmin);
+  color: white;
+}
+
+
+.Node {
+  background-color: black;
+  border-radius: 10px;
+  width:20vmin;
+  height:15vmin;
+  position:absolute;
+}
+
+
+.Line {
+  background-color: black;
+}
+
+.Sidebar {
+  position:fixed;
+  top:0;
+  left:0;
+  background-color: black;
+  height:100%;
+  width:20%;
+}
