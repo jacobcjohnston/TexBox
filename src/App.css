@@ -14,7 +14,7 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  font-size: calc(5px + 1vmin);
+  font-size: calc(1px + 1.6vmin);
   color: white;
 }
 
@@ -22,21 +22,44 @@
 .Node {
   background-color: black;
   border-radius: 10px;
-  width:20vmin;
-  height:15vmin;
+  width:30vmin;
+  height:27vmin;
   position:absolute;
+}
+
+.Action {
+  padding:0px;
+}
+
+textarea {
+  resize:none;
+  width:27vmin;
+  height:17vmin;
+  border-radius: 5px;
+  font-size: 15px;
 }
 
 
 .Line {
-  background-color: black;
+  background-color: red;
+  border-radius: 4px;
+  position: fixed;
+
 }
 
+.Horizontal {
+  height:9px;
+}
+.Vertical {
+  width:9px;
+}
+
+
 .Sidebar {
-  position:fixed;
-  top:0;
+  position:absolute;
   left:0;
-  background-color: black;
+  top:0;
+  
   height:100%;
   width:20%;
 }
