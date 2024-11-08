@@ -3,8 +3,9 @@ import Draggable from "react-draggable";
 import logo from "./logo.svg";
 
 import { MapContext } from './MapContext';
-
 import Action from './Action';
+
+import getVMin from './window';
 
 
 
@@ -19,14 +20,14 @@ function Line ({startPos, endPos}) {
       <div>
         <div className="Line Horizontal" style = {
           {
-            width:width+6,
+            width:width+ getVMin()*0.0075,
             left:Math.min(startPos[0], endPos[0]),
             top:height/2 + startPos[1],
           }
         }></div>
         <div className="Line Vertical" style = {
           {
-            height:height/2+6,
+            height:height/2 + getVMin() * 0.0075,
             left:startPos[0],
             top:startPos[1],
           }
@@ -40,7 +41,7 @@ function Line ({startPos, endPos}) {
         }></div>
       </div>
     );
-  }
+}
 
 
 
@@ -115,17 +116,18 @@ export default function Node({id, action, result="...", parentPos,
               <input className="Action" placeholder={action} onChange={storeAction}></input>
               <textarea placeholder={result} onChange={storeResult}></textarea>
               <img src={logo} className='Plus' alt="logo" onClick = {addChild}/>
-              <Line startPos={[parentPos[0] - pos[0]+145, parentPos[1]-pos[1]+275]} endPos={[145, 10]}/>
+              <Line startPos={[parentPos[0] - pos[0] + (getVMin()*0.15), parentPos[1]-pos[1]+(getVMin()*0.28)]} endPos={[getVMin()*0.15, 10]}/>
             </div>
           </div>
         </Draggable>
         {
             childList.map((x) => <Node 
-            key={x} 
-            id={`${id}_${x}`}
-            action={`Action${x+1}`}
-            parentPos = {pos}
-            position = {[pos[0]+300, pos[1]+300]}/>)
+                key={x} 
+                id={`${id}_${x}`}
+                action={`Action${x+1}`}
+                parentPos = {pos}
+                position={[pos[0] + x*250 - 300, pos[1] + 340]}
+            />)
         }
       </div>
     );

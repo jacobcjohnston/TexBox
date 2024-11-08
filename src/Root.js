@@ -57,7 +57,13 @@ export default function Root({action="Start", result="Off on an adventure...", p
             </div>
             </Draggable>
             {
-                childList.map((x) => <Node key={x} id={`_0_${x}`} action={`Action${x+1}`} parentPos = {pos}/>)
+                childList.map((x) => <Node
+                    key={x}
+                    id={`_0_${x}`}
+                    action={`Action${x+1}`}
+                    parentPos = {pos}
+                    position={[pos[0] + x*250 - 300, pos[1] + 340]}
+                />)
             }
         </div>
     );

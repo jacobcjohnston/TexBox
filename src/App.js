@@ -1,7 +1,9 @@
 import './App.css';
-import Root from './Root';
-import {MapProvider } from './MapContext';
 
+import React from "react";
+
+import Root from './Root';
+import { MapProvider } from './MapContext';
 
 
 function App() {
@@ -20,13 +22,14 @@ function App() {
 
 
   return (
-    <div className="App">
-      <header className="App-header">
-        <MapProvider>
-          <Root/>
-        </MapProvider>
-      </header>
-    </div>
+        <div className="App">
+
+          <header className="App-header">
+            <MapProvider>
+              <Root/>
+            </MapProvider>
+          </header>
+        </div>
   );
 }
 
