@@ -1,6 +1,6 @@
 import './App.css';
 
-import React from "react";
+import React, { useRef} from "react";
 
 import Root from './Root';
 import { MapProvider } from './MapContext';
@@ -8,21 +8,20 @@ import { MapProvider } from './MapContext';
 
 function App() {
 
-  /*const keyPress = useCallback(
-    () => {
-      setData(data.concat(["Hello?"]))
-    },
-    [setData, data]
-  );
 
-  useEffect(() => {
-    document.addEventListener("keyup", keyPress);
-    return () => document.removeEventListener("keyup", keyPress);
-  }, [keyPress])*/
+  //handle Panning
+  const click = useRef(false);
 
+  const detectClick = (e) => {
+    click.current = true
+  }
 
   return (
         <div className="App">
+          <div 
+            onClick = {() => click.current = true} 
+            className="Pan"
+          ></div>
 
           <header className="App-header">
             <MapProvider>

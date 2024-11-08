@@ -20,10 +20,8 @@
 }
 
 .App-header {
-  background-color: var(--metal);
   min-height: 200vh;
   min-width: 100vh;
-  margin:10vmin;
 
 
   display: flex;
@@ -36,11 +34,18 @@
 }
 
 
+.Pan {
+  background: none;
+  width:100vw;
+  height:100vh;
+  position: fixed;
+}
+
 .Node {
   background-color: var(--superDark);
-  border-radius: 10px;
-  width:31vmin;
-  height:28vmin;
+  border-radius: 1vmin;
+  width:22.6vmin;
+  height:18.6vmin;
   position:absolute;
   cursor:default
 }
@@ -48,11 +53,11 @@
 
 
 .Action {
-  width:31vmin;
-  height:8vmin;
+  width:22.6vmin;
+  height:4.2vmin;
   background: none;
   border:none;
-  font-size:3vmin;
+  font-size:2.3vmin;
   text-align: center;
   color:var(--cream);
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
@@ -64,19 +69,20 @@
 
 .Start {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
-  font-size:3vmin;
+  font-size:2.3vmin;
   font-weight: 600;
   line-height: 30%;
+  margin: -1.1vmin;
 }
 
 
 
 textarea {
   resize:none;
-  width:27vmin;
-  height:16vmin;
-  border-radius: 5px;
-  font-size: 15px;
+  width:19.2vmin;
+  height:11.3vmin;
+  border-radius: 0.6vmin;
+  font-size: 1.3vmin;
   padding:1vmin;
   background-color:var(--metal);
   color:var(--cream);
@@ -86,9 +92,9 @@ textarea {
 
 .Plus {
   position: relative;
-  top:-1.5vmin;
-  width:3.5vmin;
-  height:3.5vmin;
+  top:-1vmin;
+  width:2.5vmin;
+  height:2.5vmin;
 }
 
 
@@ -100,10 +106,10 @@ textarea {
 }
 
 .Horizontal {
-  height:0.75vmin;
+  height:0.4vmin;
 }
 .Vertical {
-  width:0.75vmin;
+  width:0.4vmin;
 }
 
 
