@@ -1,5 +1,16 @@
+:root {
+  --metal:#282C33;
+  --navy:#1B263B;
+  --dark:#0d1b2a;
+  --cream:#E0E1DD;
+  --paleBlue:#415A77;
+  --blue:#415a77;
+  --superDark:#0D131A;
+}
+
 .App {
   text-align: center;
+  background-color: var(--metal);
 }
 
 .App-logo {
@@ -8,24 +19,26 @@
 }
 
 .App-header {
-  background-color: #282c34;
+  background-color: var(--metal);
   min-height: 100vh;
   display: flex;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(1px + 1.6vmin);
-  color: white;
+  color: var(--cream);
 }
 
 
 .Node {
-  background-color: black;
+  background-color: var(--superDark);
   border-radius: 10px;
   width:31vmin;
   height:28vmin;
   position:absolute;
 }
+
+
 
 .Action {
   width:31vmin;
@@ -34,7 +47,7 @@
   border:none;
   font-size:3vmin;
   text-align: center;
-  color:white;
+  color:var(--cream);
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
   letter-spacing: -0.1vmin;
@@ -58,24 +71,33 @@ textarea {
   border-radius: 5px;
   font-size: 15px;
   padding:1vmin;
-  background-color: #282c34;
-  color:white;
+  background-color:var(--metal);
+  color:var(--cream);
   border:none;
 }
 
 
+.Plus {
+  position: relative;
+  top:-1.5vmin;
+  width:3.5vmin;
+  height:3.5vmin;
+}
+
+
+
 .Line {
-  background-color: red;
+  background-color: var(--cream);
   border-radius: 4px;
   position: fixed;
-
+  z-index:-10;
 }
 
 .Horizontal {
-  height:9px;
+  height:7px;
 }
 .Vertical {
-  width:9px;
+  width:7px;
 }
 
 

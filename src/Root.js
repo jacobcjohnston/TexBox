@@ -1,14 +1,14 @@
 import {useContext, useState } from 'react';
 import Draggable from "react-draggable";
-
 import {MapContext} from './MapContext';
 
+import Node from './NodeComp';
+import logo from "./logo.svg";
+
+import Action from './Action';
 
 export default function Root({action="Start", result="Off on an adventure...", position=[0, 0]}) {
-
-    const {map, setMap} = useContext(MapContext);
-    
-
+    /*  --------------------- Hande Position -------------- */
     const [pos, setPos] = useState(position);
   
     const trackDrag = (e, ui) => {
@@ -19,19 +19,29 @@ export default function Root({action="Start", result="Off on an adventure...", p
       );
     }
 
-    const [resultText, setResultText] = useState(action);
-    const storeResult = (e) => {
-        setResultText(e.target.value);
+
+    /* ----------------- Handle Map Context ------------*/
+
+    const {map, setMap} = useContext(MapContext);
+    //const [resultText, setResultText] = useState("");
+    const updateMap = (e) => {
+        //setResultText(e.target.value);
         setMap({
             ...map,
-            "_START":resultText,
+            "_0":new Action("Start", e.target.value),
         });
         console.log(map);
     }
   
+    /* Handle Children ------------------------ */
+  
+    const [childList, setChildList] = useState([]);
 
-  
-  
+
+    const addChild = () => {
+        setChildList(childList.concat([childList.length]))
+    }
+
     return (
         <div>
             <Draggable
@@ -40,11 +50,15 @@ export default function Root({action="Start", result="Off on an adventure...", p
             >
             <div>
                 <div className='Node'>
-                <div  className='Start' ><h4>Start</h4></div>
-                <textarea placeholder={result} onChange={storeResult}></textarea>
+                    <div  className='Start' ><h4>Start</h4></div>
+                    <textarea placeholder={result} onChange={updateMap}></textarea>
+                <img src={logo} className='Plus' alt="logo" onClick={addChild}/>
                 </div>
             </div>
             </Draggable>
+            {
+                childList.map((x) => <Node key={x} id={`_0_${x}`} action={`Action${x+1}`} parentPos = {pos}/>)
+            }
         </div>
     );
   }
