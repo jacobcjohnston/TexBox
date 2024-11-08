@@ -1,91 +1,9 @@
-import {useCallback, useEffect, useReducer, useRef, useState } from 'react';
 import './App.css';
-import Draggable from "react-draggable";
+import Root from './Root';
+import Node from './NodeComp';
+import {MapProvider } from './MapContext';
 
 
-
-
-
-class State {
-  constructor(action, result, parent=null, position=[0, 0]) {
-      this.action = action;
-      this.result = result;
-
-      this.parent = parent;
-      this.children = [];
-      this.position = position;
-
-      const updatePos = (data) => {
-        this.position = data;
-      }
-
-
-      this.jsx = <Node
-        action = {this.action}
-        result = {this.result}
-        updatePosition = {updatePos}
-        position={this.position}
-        parentPos={parent ? parent.position : parent}
-        key={this.action}
-      />
-  }
-
-  addChild(action, result) {
-      const child = new State(action, result, this)
-      this.children.push(child)
-  }
-  
-  getChild(action) {
-    for (const child of this.children) {
-      if (child.action === action) {
-        return child;
-      }
-    }
-    return -1;
-  }
-
-}
-
-
-
-
-
-function Node({action, result, updatePosition, parentPos, position = [0, 0]}) {
-
-  const [pos, setPos] = useState(position);
-
-  const trackDrag = (e, ui) => {
-    const [x, y] = pos;
-    setPos(
-      [x + ui.deltaX,
-        y + ui.deltaY,]
-    );
-    updatePosition(pos)
-  }
-
-  //const [parentPos, setParentPos] = useState(parent.position)
-
-
-
-  return (
-    <div>
-      <Draggable
-        defaultPosition={{x:position[0], y:position[1]}}
-        onDrag={trackDrag}
-      >
-        <div>
-          <div className='Node'>
-            <h1 className="Action">{action}</h1>
-            <textarea></textarea>
-          </div>
-          {
-            (parentPos) ? (<Line startPos={[parentPos[0] - pos[0], parentPos[1] - pos[1]]} endPos = {[100, 5]}/>) : (<div></div>)
-          }
-        </div>
-      </Draggable>
-    </div>
-  );
-}
 
 
 function Line ({startPos, endPos}) {
@@ -122,52 +40,28 @@ function Line ({startPos, endPos}) {
 }
 
 
-
-
-
-
-function parseStory(story) {
-  return [story.jsx].concat(...story.children.map(parseStory))
-
-}
-
-
-
-
-const story = new State("Start", "You are here", null, [0, -300])
-story.addChild("Left", "You are left")
-story.addChild("Right", "You are Right")
-
-console.log(story)
-console.log(parseStory(story))
-
-
 function App() {
-  const [data, setData] = useState(parseStory(story));
 
   /*const keyPress = useCallback(
     () => {
       setData(data.concat(["Hello?"]))
     },
     [setData, data]
-  );*/
-
-  const keyPress = () => {
-    console.log(story)
-  }  
+  );
 
   useEffect(() => {
     document.addEventListener("keyup", keyPress);
     return () => document.removeEventListener("keyup", keyPress);
-  }, [keyPress])
+  }, [keyPress])*/
 
 
   return (
     <div className="App">
       <header className="App-header">
-
-          {data}
-      
+        <MapProvider>
+          <Root/>
+          <Node action={"Jump"}/>
+        </MapProvider>
       </header>
     </div>
   );

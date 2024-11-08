@@ -22,21 +22,45 @@
 .Node {
   background-color: black;
   border-radius: 10px;
-  width:30vmin;
-  height:27vmin;
+  width:31vmin;
+  height:28vmin;
   position:absolute;
 }
 
 .Action {
-  padding:0px;
+  width:31vmin;
+  height:8vmin;
+  background: none;
+  border:none;
+  font-size:3vmin;
+  text-align: center;
+  color:white;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+  letter-spacing: -0.1vmin;
+  font-weight: 600;
 }
+
+
+.Start {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+  font-size:3vmin;
+  font-weight: 600;
+  line-height: 30%;
+}
+
+
 
 textarea {
   resize:none;
   width:27vmin;
-  height:17vmin;
+  height:16vmin;
   border-radius: 5px;
   font-size: 15px;
+  padding:1vmin;
+  background-color: #282c34;
+  color:white;
+  border:none;
 }
 
 
