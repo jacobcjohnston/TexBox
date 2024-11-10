@@ -1,10 +1,13 @@
 import React, { useContext, useEffect, useRef, useState, } from "react";
 import { MapContext } from "./MapContext";
+import Instructions from "./Instructions";
 
 export default function Sidebar() {
     const {map, _} = useContext(MapContext);
     const projectName = useRef("A TexBox Adventure");
     const [isCurrent, setCurrent] = useState(false);
+
+    const [instructionsVisible, setInstructionsVisible] = useState(true);
 
     const HTML = () => {
         return `
@@ -261,8 +264,10 @@ export default function Sidebar() {
                             </a>
                         </div>   
                     </div>
+                    <h3 id="instructionsLink" onClick= {()=> {setInstructionsVisible(true)}}> — Help — </h3>
                 </div>
             </div>
+            <Instructions visible={instructionsVisible} setVisible={setInstructionsVisible}/>
         </div>
     );
 }

@@ -10,7 +10,7 @@ import getVMin from './window';
 
 
 
-function Line ({startPos, endPos}) {
+export function Line ({startPos, endPos}) {
     const width = Math.abs(startPos[0] - endPos[0]);
     const height = Math.abs(startPos[1] - endPos[1]);
   
