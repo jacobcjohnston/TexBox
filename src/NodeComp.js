@@ -110,6 +110,9 @@ export default function Node({id, action, result="...", parentPos,
         <Draggable
           defaultPosition={{x:position[0], y:position[1]}}
           onDrag={trackDrag}
+          bounds={{
+            top:position[1] - 100,
+          }}
         >
           <div>
             <div className='Node'>

@@ -7,7 +7,8 @@ import logo from "./logo.svg";
 
 import Action from './Action';
 
-export default function Root({action="Start", result="Off on an adventure...", position=[0, 100]}) {
+
+export default function Root({action="Start", result="Off on an adventure...", position=[-100, 100]}) {
     /*  --------------------- Hande Position -------------- */
     const [pos, setPos] = useState(position);
   

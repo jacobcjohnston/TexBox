@@ -21,8 +21,7 @@
 
 .App-header {
   min-height: 200vh;
-  min-width: 100vh;
-
+  min-width: 200vw;
 
   display: flex;
   flex-direction: column;
@@ -32,6 +31,97 @@
   font-size: calc(1px + 1.6vmin);
   color: var(--cream);
 }
+
+
+.Sidebar {
+  position:fixed;
+  top:0px;
+  left:0px;
+  cursor: default;
+}
+
+.SidebarBackdrop {
+  position: fixed;
+  height:100vh;
+  width:32vmin;
+  background-color: var(--superDark);
+  box-shadow: 2px 0px 10px rgba(0, 0.05, 0.1, 0.2);
+  cursor: default;
+}
+
+.Export {
+  transform: translate(0vmin, 8vmin);
+  padding:1.3vmin;
+  font-size: 2vmin;
+  font-weight: 600;
+  border: none;
+  border-radius: 0.32vmin;
+  color: var(--navy);
+  background-color: var(--cream);
+  width:18vmin;
+  transition: transform 0.3s;
+}
+
+.Faded {
+  opacity:25%;
+}
+
+.Faded:hover {
+  transform: translate(0vmin, 8vmin);
+}
+
+button:hover{
+  transform:translate(0vmin, 7.5vmin);
+}
+
+
+button:active {
+  background-color: var(--superDark);
+  border: 1px solid var(--cream);
+  color:var(--cream)
+}
+
+.Render {
+  height:8vmin;
+}
+
+
+.projectName {
+  font-size: 3vmin;
+}
+
+div.projectName {
+  width:32vmin;
+  height:6vmin;
+
+}
+input.projectName {
+  height:6vmin;
+}
+
+
+h3.projectName {
+  font-size: 1.9vmin;
+  font-weight: 400;
+  letter-spacing: 1.3px;
+  transform: translate(0, 1.5vmin);
+}
+
+
+h1.Title {
+  font-size: 6vmin;
+  font-weight: 700;
+  line-height: 50%;
+  margin-top: 5vmin;
+}
+
+h2.Title {
+  font-size: 2.2vmin;
+  font-weight: 500;
+  opacity: 75%;
+  font-variant-caps: all-small-caps;
+}
+
 
 
 .Pan {
@@ -47,12 +137,11 @@
   width:22.6vmin;
   height:18.6vmin;
   position:absolute;
-  cursor:default
+  cursor:default;
 }
 
 
-
-.Action {
+input {
   width:22.6vmin;
   height:4.2vmin;
   background: none;
@@ -65,7 +154,6 @@
   letter-spacing: -0.1vmin;
   font-weight: 600;
 }
-
 
 .Start {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -112,12 +200,3 @@ textarea {
   width:0.4vmin;
 }
 
-
-.Sidebar {
-  position:absolute;
-  left:0;
-  top:0;
-  
-  height:100%;
-  width:20%;
-}
