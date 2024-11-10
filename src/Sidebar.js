@@ -7,6 +7,8 @@ export default function Sidebar() {
     const projectName = useRef("A TexBox Adventure");
     const [isCurrent, setCurrent] = useState(false);
 
+    const [instructionsVisible, setInstructionsVisible] = useState(true);
+
     const HTML = () => {
         return `
     <!DOCTYPE html>
@@ -262,9 +264,10 @@ export default function Sidebar() {
                             </a>
                         </div>   
                     </div>
+                    <h3 id="instructionsLink" onClick= {()=> {setInstructionsVisible(true)}}> — Help — </h3>
                 </div>
             </div>
-            <Instructions/>
+            <Instructions visible={instructionsVisible} setVisible={setInstructionsVisible}/>
         </div>
     );
 }
