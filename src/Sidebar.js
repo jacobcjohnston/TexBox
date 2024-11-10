@@ -1,5 +1,6 @@
 import React, { useContext, useEffect, useRef, useState, } from "react";
 import { MapContext } from "./MapContext";
+import Instructions from "./Instructions";
 
 export default function Sidebar() {
     const {map, _} = useContext(MapContext);
@@ -263,6 +264,7 @@ export default function Sidebar() {
                     </div>
                 </div>
             </div>
+            <Instructions/>
         </div>
     );
 }

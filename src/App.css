@@ -200,3 +200,56 @@ textarea {
   width:0.4vmin;
 }
 
+
+
+
+
+
+#Instruction-Container{
+  width:calc(80vw);
+  right:10vw;
+  top:8vmin;
+  height:80vh;
+  z-index: 100;
+  position: fixed;
+  box-shadow: 0px 10px 25px rgba(0, 0.03, 0.07, 0.3);
+  border-radius: 1vmin;
+  border: 4px solid var(--cream);
+  background-color: var(--metal);
+  overflow: hidden;
+}
+
+h1.Instructions {
+  letter-spacing: 2px;
+  font-size: 4vmin;
+}
+ol.Instructions {
+  text-align: left;
+  padding:3vmin 9vmin;
+  font-size: 2.2vmin;
+  width:35vw;
+}
+
+li.Instructions {
+  margin-bottom: 2vmin;
+  list-style: ">>  ";
+}
+
+.Example {
+  position: fixed;
+}
+#ExampleNode {
+  right:18vw;
+  top:100px;
+}
+
+#ExampleNode2 {
+  right:30vw;
+  top:300px;
+}
+
+#ExampleNode3 {
+
+  right:11vw;
+  top:300px;
+}
