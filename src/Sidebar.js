@@ -1,14 +1,13 @@
-import React, { useContext, useRef, useEffect} from "react";
+import React, { useContext, useEffect, useRef, useState, } from "react";
 import { MapContext } from "./MapContext";
 
 export default function Sidebar() {
     const {map, _} = useContext(MapContext);
     const projectName = useRef("A TexBox Adventure");
-    let html;
+    const [isCurrent, setCurrent] = useState(false);
 
-    const handleNameChange = (e) => {
-        projectName.current = e.target.value; 
-        html = `
+    const HTML = () => {
+        return `
     <!DOCTYPE html>
 <html lang="en">
 <meta charset="UTF-8">
@@ -127,7 +126,7 @@ export default function Sidebar() {
     </div>
 
     <script>
-        const map = JSON.parse(${JSON.stringify(map)})
+        const map = ${JSON.stringify(map)};
 
 
         let pos = "";
@@ -215,14 +214,25 @@ export default function Sidebar() {
 </footer>
 
 </body>
-<html>
-    `
+        <html>`;
+    }
+
+    useEffect(() => {
+        setCurrent(false);
+    }, [map]);
+
+
+    let [file, setFile] = useState(new Blob([HTML()], {type:"text/plain"}));
+
+    const handleNameChange = (e) => {
+        projectName.current = e.target.value; 
     };
 
-
-    useEffect(() => {handleNameChange({target:{value:"A TexBoxAdventure"}})}, [])
-
-
+    const compile = () => {
+        setFile(new Blob([HTML()], {type:"text/plain"}));
+        setCurrent(true);
+    }
+    
     return (
         <div>
             <div className="Sidebar">
@@ -234,18 +244,23 @@ export default function Sidebar() {
                         <h3 className="projectName">PROJECT NAME</h3>
                         <input className="projectName" placeholder="New Texbox" onChange={handleNameChange}></input>
                     </div>
+                    <div>
+                        <div className="Render">
+                            <button className="Export" onClick = {() => {compile();}}>Compile Story</button>
+                        </div>
 
-                    <a
-                        href = {
-                            `data:text/plain,${html}`
-                        }
-                        download = {`${projectName.current}.html`}
-                        target="_blank"
-                        rel="noopener noreferrer"
+                        <div className="Render">
+                            <a
+                                href = {URL.createObjectURL(file)}
+                                download = {`${projectName.current}.html`}
+                                target="_blank"
+                                rel="noopener noreferrer"
 
-                    >
-                        <button id="Export">Export Story</button>
-                    </a>
+                            >
+                                <button className={isCurrent ? "Export" : "Export Faded"}>Export Story</button>
+                            </a>
+                        </div>   
+                    </div>
                 </div>
             </div>
         </div>
