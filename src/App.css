@@ -48,7 +48,7 @@
 }
 
 #Export {
-  margin-top: 3vmin;
+  margin-top: 9vmin;
   padding:1.3vmin;
   font-size: 2vmin;
   font-weight: 600;
@@ -58,6 +58,25 @@
   background-color: var(--cream);
 }
 
+.projectName {
+  font-size: 3vmin;
+}
+
+div.projectName {
+  width:32vmin;
+  height:5vmin;
+
+}
+input.projectName {
+  height:6vmin;
+}
+
+h3.projectName {
+  font-size: 1.9vmin;
+  font-weight: 400;
+  letter-spacing: 1.3px;
+  transform: translate(0, 1.5vmin);
+}
 
 
 h1.Title {
@@ -93,8 +112,7 @@ h2.Title {
 }
 
 
-
-.Action {
+input {
   width:22.6vmin;
   height:4.2vmin;
   background: none;
@@ -107,7 +125,6 @@ h2.Title {
   letter-spacing: -0.1vmin;
   font-weight: 600;
 }
-
 
 .Start {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
@@ -154,12 +171,3 @@ textarea {
   width:0.4vmin;
 }
 
-
-.Sidebar {
-  position:absolute;
-  left:0;
-  top:0;
-  
-  height:100%;
-  width:20%;
-}
